@@ -7,7 +7,7 @@ on:
       - '*' # Push events to matching any tag format, i.e. 1.0, 20.15.10
 
 env:
-  PLUGIN_NAME: todo-Exploder
+  PLUGIN_NAME: logseq-starter-plugin
 
 jobs:
   build:
@@ -33,7 +33,7 @@ jobs:
         uses: ncipollo/release-action@v1
         id: create_release
         env:
-          GITHUB_TOKEN: ${{ secrets.PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VERSION: ${{ github.ref }}
         with:
           allowUpdates: true
@@ -44,7 +44,7 @@ jobs:
         id: upload_zip
         uses: actions/upload-release-asset@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./${{ env.PLUGIN_NAME }}.zip
@@ -55,7 +55,7 @@ jobs:
         id: upload_metadata
         uses: actions/upload-release-asset@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./package.json
