@@ -1,6 +1,6 @@
 {
   "name": "todo-exploder",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "TODO Exploder",
   "main": "dist/index.html",
   "targets": {
@@ -17,7 +17,7 @@
     "@logseq/libs": "0.0.2"
   },
   "logseq": {
-    "id": "TODO Exploder",
+    "id": "TODO-Exploder",
     "title": "TODO Exploder",
     "icon": "./icon.png"
   },
